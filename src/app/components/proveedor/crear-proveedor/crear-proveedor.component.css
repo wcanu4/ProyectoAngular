@@ -1,0 +1,84 @@
+/* Estilos generales para el formulario */
+.container {
+    max-width: 400px;
+    margin: 5px auto 0; /* Espacio desde arriba reducido */
+    padding: 20px;
+    background-color: #ffffff; /* Fondo blanco */
+    border: 1px solid #ccc; /* Borde delgado */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sutil sombra */
+}
+
+.titulo {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para etiquetas y campos de entrada */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+/* Estilos para el botón de envío */
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para todos los elementos input y select dentro del formulario */
+form input,
+form select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+/* Estilo para las etiquetas (labels) de los campos */
+form label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Estilo para el botón de enviar */
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Cambiar color de fondo al pasar el ratón por encima del botón */
+form button:hover {
+    background-color: #0056b3;
+}
+
+form {
+    margin-top: 80px;
+}

@@ -1,0 +1,114 @@
+<div class="container">
+  <div class="title"> 
+<h1>Listado de proveedores</h1>
+<div class="input-container">
+  <form class="d-flex ">    
+    </form>
+    <button type="button" move-right class="btn btn-primary" (click)="abrirModalNuevoProducto()">NUEVO PROVEEDOR</button>
+  
+  
+</div>
+  </div>
+  <div class="search-and-filter">
+    <input type="text" [(ngModel)]="searchText" placeholder="Buscar...">    
+  </div>
+  <div class="table-container">
+    <table class="table table-hover table-bordered table-striped">
+      <thead>
+        <tr>
+          <th (click)="sortTable('id')">
+            <span>ID</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'nombreProveedor' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'nombreProveedor' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('nombreProveedor')">
+            <span>Nombre del Proveedor</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'nombreProveedor' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'nombreProveedor' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('telefono')">
+            <span>Teléfono</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'telefono' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'telefono' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('email')">
+            <span>Email</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'email' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'email' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('direccion')">
+            <span>Dirección</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'direccion' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'direccion' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('ciudad')">
+            <span>Departamento</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'ciudad' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'ciudad' && sortDirection === -1}">&#8597;</span>
+          </th>
+        </tr>
+      </thead>
+      
+    <tbody>
+      <tr *ngFor="let proveedor of visibleProveedores" class="table-active">
+        <td>{{ proveedor.id }}</td>
+        <td>{{ proveedor.nombreProveedor }}</td>
+        <td>{{ proveedor.telefono }}</td>
+        <td>{{ proveedor.email }}</td>
+        <td>{{ proveedor.direccion }}</td>
+        <td>{{ proveedor.ciudad }}</td>
+        <td>
+          <button (click)="showDeleteConfirmation(proveedor)" type="button" class="btn btn-info btn-sm">Eliminar</button>
+          <button (click)="editarProveedor(proveedor)" type="button" class="btn btn-secondary btn-sm ms-2">Editar</button>
+        </td>
+      </tr>
+      
+
+      <div class="pagination move-right"><!-- Inicio de la paginacion-->
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" (click)="previousPage()">&laquo;</a>
+          </li>
+          <li class="page-item active">
+            <a class="page-link" (click)="previousPage()">1</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" (click)="nextPage()">2</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" (click)="nextPage()">&raquo;</a>
+          </li>
+        </ul>
+      </div><!-- Fin de la paginacion-->    
+      
+      <div class="confirmation-" *ngIf="showConfirmationModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Eliminar Producto</h5>
+              <button  (click)="cancelDelete()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">          
+                <span aria-hidden="false"></span>
+              </button>
+            </div>
+            <div class="modal-body">  
+              <div class="form-group has-success">              
+              <p>¿Estás seguro de que deseas eliminar al Proveedor {{ storeToDelete?.code }}?</p>  
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button (click)="confirmDelete()" type="button" class="btn btn-primary" data-bs-dismiss="modal" >Guardar</button>
+                <button (click)="cancelDelete()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+      
+

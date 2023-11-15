@@ -1,0 +1,83 @@
+ 
+body {
+    background-image: url('/assets/login.jpeg');
+    background-size: cover; /* Cubre toda la ventana del navegador */
+    background-position: center; /* Centra la imagen */
+    background-attachment: fixed; /* Fija la imagen de fondo para que no se desplace con el contenido */
+    margin: 0; /* Elimina el margen predeterminado del cuerpo */
+    padding: 0; /* Elimina el relleno predeterminado del cuerpo */
+    width: 100%; /* Ancho al 100% del ancho de la ventana del navegador */
+    height: 93.4vh; /* Altura al 100% de la altura de la ventana del navegador */
+    display: flex; /* Usa flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+  }
+
+  .container {
+    background: rgba(160, 108, 80, 0.502);
+    margin-top:-50px;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgb(14, 14, 14);
+    text-align: center;
+}
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 100px;
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    overflow: hidden; /* Oculta cualquier parte que se desborde */
+}
+.titulo {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color:rgb(255, 250, 250);
+}
+
+/* Estilos para etiquetas y campos de entrada */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    color:white;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.7);
+    transition: border-color 0.3s;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #bcc0c4;
+}
+
+/* Estilos para el botón de envío */
+button[type="submit"] {
+    background-color: #f4f5f6;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #ebece5;
+}

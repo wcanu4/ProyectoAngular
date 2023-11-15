@@ -1,0 +1,192 @@
+<div class="modal-">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar usuarios</h5>
+        <button  (click)="cancelar()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">          
+          <span aria-hidden="false"></span>
+        </button>
+      </div>      
+      <form (submit)="guardarCambios()" class="two-columns-form">
+
+      <div class="column">
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" [(ngModel)]="usuario.name" name="nombre" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="dpi">Dpi:</label>
+          <input type="text" id="dpi" [(ngModel)]="usuario.document" name="dpi" class="form-control" required>
+        </div>   
+        <div class="form-group">
+          <label for="telefono">Telefono:</label>
+          <input type="text" id="telefono" [(ngModel)]="usuario.phone" name="telefono" class="form-control" required>
+        </div>     
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" id="email" [(ngModel)]="usuario.mail" name="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="direccion">Direccion:</label>
+          <input type="text" id="direccion" [(ngModel)]="usuario.addres" name="direccion" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="fecha-creacion">Fecha Creacion:</label>
+          <input type="text" id="creacion" [(ngModel)]="usuario.creation" name="fecha-creacion" class="form-control" required>
+        </div>  
+      </div>
+      
+
+      <div class="column">
+        <div class="form-group">
+          <label for="usuario">Usuario:</label>
+          <input type="text" id="usuario" [(ngModel)]="usuario.user" name="usuario" class="form-control" required>
+        </div> 
+        <div class="form-group">
+          <label for="rol">Rol:</label>
+          <select id="rol" [(ngModel)]="usuario.rol" name="rol" class="form-control" required>       
+            <option value="administrador">administrador</option>
+            <option value="Empleado">Empleado</option>
+          </select>
+        </div>
+
+
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="compras">Compras</label>
+              <select id="compras" [(ngModel)]="usuario.compras" name="compras" class="form-control">
+                <option value="">Seleccione estado</option>
+                <option value="activado">Activado</option>
+                <option value="desactivado">Desactivado</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="ventas">Ventas</label>
+              <select id="ventas" [(ngModel)]="usuario.ventas"name="ventas" class="form-control">
+                <option value="">Seleccione estado</option>
+                <option value="activado">Activado</option>
+                <option value="desactivado">Desactivado</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agrega dos grupos de select para Inventario y Procesos -->
+<div class="row">
+  <div class="col">
+    <div class="form-group">
+      <label for="inventario">Inventario</label>
+      <select id="inventario"[(ngModel)]="usuario.inventario" name="inventario" class="form-control">
+        <option value="">Seleccione estado</option>
+        <option value="activado">Activado</option>
+        <option value="desactivado">Desactivado</option>
+      </select>
+    </div>
+  </div>
+  <div class="col">
+    <div class="form-group">
+      <label for="procesos">Procesos</label>
+      <select id="procesos" [(ngModel)]="usuario.procesos" name="procesos" class="form-control">
+        <option value="">Seleccione estado</option>
+        <option value="activado">Activado</option>
+        <option value="desactivado">Desactivado</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- Agrega dos grupos de select para Reportes y Usuarios -->
+<div class="row">
+  <div class="col">
+    <div class="form-group">
+      <label for="reportes">Reportes</label>
+      <select id="reportes"  [(ngModel)]="usuario.reportes" name="reportes" class="form-control">
+        <option value="">Seleccione estado</option>
+        <option value="activado">Activado</option>
+        <option value="desactivado">Desactivado</option>
+      </select>
+    </div>
+  </div>
+  <div class="col">
+    <div class="form-group">
+      <label for="usuarios">Usuarios</label>
+      <select id="usuarios" [(ngModel)]="usuario.usuarios" name="usuarios" class="form-control">
+        <option value="">Seleccione estado</option>
+        <option value="activado">Activado</option>
+        <option value="desactivado">Desactivado</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <div class="form-group">
+      <label for="bodega">Bodega</label>
+      <select id="bodega"  [(ngModel)]="usuario.bodega" name="bodega" class="form-control">
+        <option value="">Seleccione estado</option>
+        <option value="activado">Activado</option>
+        <option value="desactivado">Desactivado</option>
+      </select>
+    </div>
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="form-group">
+          <label for="pass">Contraseña:</label>
+          <input type="password" id="pass" [(ngModel)]="usuario.pass" name="pass" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="state">Estado:</label>
+          <select id="state" [(ngModel)]="usuario.state" name="state" class="form-control" required>       
+            <option value="Activo">Activo</option>
+            <option value="Inactivo">Inactivo</option>
+          </select>
+        </div>  
+        
+        
+
+
+        <div class="modal-footer">
+          <button (click)="guardarCambios()" type="button" class="btn btn-primary" data-bs-dismiss="modal" >Guardar</button>
+          <button (click)="cancelar()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+    </form>
+    </div>
+  
+  </div>
+</div>

@@ -1,0 +1,167 @@
+
+  <!-- Contenido de tu componente -->
+  <div class="container">
+    <h4>COMPROBANTE DE COMPRA</h4>
+    
+    <!-- Sección de selección de barraco y cliente -->
+    <div class="selection-section">
+      <div class="barraco-selection">
+        <label for="productoSelector"></label>
+        <select id="productoSelector" (change)="seleccionarProducto($event)">
+          <option value="">Selecciona un producto</option>
+          <option value="ocultar">Ocultar Producto</option> <!-- Agrega esta opción -->
+          <option *ngFor="let producto of productos" [value]="producto.id">{{ producto.nombreProducto }}</option>
+        </select>
+        <button (click)="alternarCamposNuevoProducto()">
+          {{ mostrarCamposNuevoProducto ? 'Ocultar Campos' : 'Nuevo Producto' }}
+        </button>
+      </div>
+      
+ 
+  
+      <div class="cliente-selection">
+        <label for="clienteSelector"></label>
+        <select id="clienteSelector" (change)="seleccionarProveedor($event)">
+          <option value="">Selecciona un proveedor</option>
+          <option value="ocultar">Ocultar Cliente</option> <!-- Agrega esta opción -->
+          <option *ngFor="let proveedor of proveedores" [value]="proveedor.id">{{ proveedor.nombreProveedor }}</option>
+        </select>
+        <button (click)="alternarCamposNuevoProveedor()">
+          {{ mostrarCamposNuevoProveedor ? 'Ocultar Campos' : 'Nuevo Proveedor' }}
+        </button>
+      </div>
+    </div>
+  
+    <!-- Sección de detalles de barraco y cliente -->
+    <div class="details-section">
+      <div class="barraco-details">
+        <ng-container *ngIf="mostrarCamposProductoExistente && productoSeleccionado">
+          <h6>Detalle del Producto</h6>
+          <label for="productoNombre">Producto:</label>
+          <input type="text" id="productocerda_nombre" [value]="productoSeleccionado.nombreProducto" readonly>
+          <label for="productoTipoProducto">Tipo de Producto:</label>
+          <input type="text" id="productoTipoPorducto" [value]="productoSeleccionado.tipoProducto" readonly>
+          <label for="productoDescripcion">Descripcion:</label>
+          <input type="text" id="productoDescripcion" [value]="productoSeleccionado.descripcion" readonly>
+          <label for="productoPrecio">Precio:</label>
+          <input type="text" id="productoPrecio" [(ngModel)]="productoSeleccionado.precio">
+          <label for="productoStock">Inventario:</label>
+          <input type="text" id="productoStock" [(ngModel)]="productoSeleccionado.stock">
+          <label for="productoFechaVencimiento">Fecha de compra:</label>
+          <input type="text" id="productoFechaVencimiento" [(ngModel)]="productoSeleccionado.fechaVencimiento">
+          <label for="productoVender">Cantidad a comprar:</label>
+          <input type="text" id="productoVender" [(ngModel)]="productoSeleccionado.vender">
+          <!-- Agrega más detalles aquí según tus necesidades -->
+          <button (click)="agregarProductoFactura()">Agregar a la factura</button>
+        </ng-container>
+        <div *ngIf="  mostrarCamposNuevoProducto" class="nuevo-cliente-inputs">
+          <h6>Detalle del Producto</h6>
+          <label for="nuevoProductoNombre">Producto:</label>
+          <input type="text" id="nuevoProductoNombreProducto" [(ngModel)]="nuevoProducto.nombreProducto">
+          
+          <label for="nuevoProductoTipoProducto">Tipo Producto:</label>
+          <input type="text" id="nuevoProductoTipoProducto" [(ngModel)]="nuevoProducto.tipoProducto">
+          
+          <label for="nuevoProductoDescripcion">Descripción:</label>
+          <input type="text" id="nuevoProductoDescripcion" [(ngModel)]="nuevoProducto.descripcion">
+          
+          <label for="nuevoProductoPrecio">Precio:</label>
+          <input type="text" id="nuevoProductoPrecio" [(ngModel)]="nuevoProducto.precio">
+          
+          <label for="nuevoProductoStock">Inventario:</label>
+          <input type="text" id="nuevoProductoStock" [(ngModel)]="nuevoProducto.stock">
+
+          <label for="nuevoProductoFechaVencimiento">Fecha de Compra :</label>
+          <input type="text" id="nuevoProductoFechaVencimiento" [(ngModel)]="nuevoProducto.fechaVencimiento">
+
+          <button (click)="agregarAlInventario()">Agregar a la factura</button>
+        </div>
+      </div>
+      
+  
+      <div class="cliente-details">
+        <ng-container *ngIf="mostrarCamposProveedorExistente && proveedorSelecionado">
+          <h6>Datos del Proveedor</h6>
+          <label for="proveedorNombre">Nombre:</label>
+          <input type="text" id="proveedorNombre" [value]="proveedorSelecionado.nombreProveedor" readonly>
+          <label for="proveedorTelefono">Telefono:</label>
+          <input type="text" id="proveedorTelefono" [value]="proveedorSelecionado.telefono" readonly>
+          <label for="proveedorCorreo">Correo:</label>
+          <input type="text" id="proveedorCorreo" [value]="proveedorSelecionado.email" readonly>
+          <label for="proveedorDireccion">Dirección:</label>
+          <input type="text" id="proveedorDireccion" [value]="proveedorSelecionado.direccion" readonly>
+          <label for="proveedorCiudad">Departamento</label>
+          <input type="text" id="proveedorCiudad" [value]="proveedorSelecionado.ciudad" readonly>
+          <!-- Agrega más detalles aquí según tus necesidades -->
+        </ng-container>
+        <div *ngIf="  mostrarCamposNuevoProveedor" class="nuevo-cliente-inputs">
+          <h6>Datos del Proveedor</h6>
+          <label for="nuevoProveedorNombre">Nombre:</label>
+          <input type="text" id="nuevoProveedorNombre" [(ngModel)]="nuevoProveedor.nombreProveedor">
+          
+          <label for="nuevoProveedorTelefono">Telefono:</label>
+          <input type="text" id="nuevoProveedorTelefono" [(ngModel)]="nuevoProveedor.telefono">
+          
+          <label for="nuevoProveedorCorreo">Correo:</label>
+          <input type="text" id="nuevoProveedorCorreo" [(ngModel)]="nuevoProveedor.email">
+          
+          <label for="nuevoProveedorDireccion">Direccion:</label>
+          <input type="text" id="nuevoProveedorDireccion" [(ngModel)]="nuevoProveedor.direccion">
+          
+          <label for="nuevoProveedorCiudad">Departamento:</label>
+          <input type="text" id="nuevoProveedorCiudad" [(ngModel)]="nuevoProveedor.ciudad">
+        </div>
+      </div>
+  
+    </div>
+  
+  <!-- Sección de factura -->
+  <!-- Sección de factura -->
+  <div class="factura" >
+    <h5>Descripcion de la compra</h5>
+    
+    <!-- Lista de ítems facturados como tabla -->
+   <!-- Lista de ítems facturados como tabla -->
+  <table class="factura-table">
+    <thead>
+      <tr>
+        <th>Nombre del Producto</th>
+        <th>Tipo de producto</th>
+        <th>Descripcion</th>
+        <th>Precio</th>
+        <th>En existencia</th>
+        <th>Fecha de compra</th>
+        <th>Cantidad Recibida</th>
+        <th>Acciones</th> <!-- Nueva columna para botones de eliminar -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of itemsFacturaProducto; let i = index">
+        <td class="factura-cell">{{ item.nombreProducto }}</td>
+        <td class="factura-cell">{{ item.tipoProducto }}</td>
+        <td class="factura-cell">{{ item.descripcion }}</td>
+        <td class="factura-cell">{{ item.precio }}</td>
+        <td class="factura-cell">{{ item.stock }}</td>
+        <td class="factura-cell">{{ item.fechaVencimiento }}</td>
+        <td class="factura-cell">{{ item.vender }}</td>
+
+        <td class="factura-cell">
+          <button (click)="eliminarItemFactura(i)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+    <!-- Total de la factura -->
+    <p>Total: {{ calcularTotalFactura() }}</p>
+    
+    <!-- Botón de Facturar -->
+    <button id="botonFacturar" (click)="facturar()">Facturar</button>
+    <p *ngIf="facturado">Facturado con éxito.</p>
+  
+  </div>
+  
+  </div>
+
+
+
+

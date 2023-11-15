@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NUEVO Producto</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="titulo">Nuevo Producto</h1>
+    <form (submit)="insertarProducto()">
+        <div class="form-group">
+            <label for="nombreProducto">Nombre del Producto:</label>
+            <input type="text" id="nombreProducto" [(ngModel)]="nuevoProducto.nombreProducto" name="nombreProducto" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="cantidad_vendida">Cantidad Vendida:</label>
+            <input type="text" id="cantidad_vendida" [(ngModel)]="nuevoProducto.cantidad_vendida" name="cantidad_vendida" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="precio_unitario">Precio Unitario:</label>
+            <input type="text" id="precio_unitario" [(ngModel)]="nuevoProducto.precio_unitario" name="precio_unitario" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="total">Total:</label>
+            <input type="text" id="total" [(ngModel)]="nuevoProducto.total" name="total" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="IDProveedor">ID del Proveedor:</label>
+            <input type="text" id="IDProveedor" [(ngModel)]="nuevoProducto.IDProveedor" name="IDProveedor" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="IDProducto">ID del Producto:</label>
+            <input type="text" id="IDProducto" [(ngModel)]="nuevoProducto.IDProducto" name="IDProducto" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="fecha">Fecha:</label>
+            <input type="text" id="fecha" [(ngModel)]="nuevoProducto.fecha" name="fecha" class="form-control" required>
+          </div>
+          
+
+      <button type="submit" class="btn btn-primary">Insertar Producto</button>
+      <button (click)="cancelar()" type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+
+      
+      <!-- Agrega un contenedor para las alertas -->
+      
+      <div class="container mt-3">
+        <!-- Alerta de éxito -->
+
+        <div *ngIf="showSuccessAlert" class="alert alert-success">
+          {{ successMessage }}
+        </div>
+
+        <!-- Alerta de error -->
+        <div *ngIf="showErrorAlert" class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
+        
+        <!-- Alerta de validación -->
+        <div *ngIf="showValidationAlert" class="alert alert-danger alert-dismissible fade show mt-3">
+          {{ validationMessage }}          
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

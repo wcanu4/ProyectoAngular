@@ -1,0 +1,2 @@
+LIBRERIAS
+npm i express mysql2  jsonwebtoken cors

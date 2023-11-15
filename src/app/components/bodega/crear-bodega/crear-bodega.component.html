@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NUEVO PRODUCTO</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="titulo"> Nuevo Pergamino</h1>
+    <form (submit)="insertarBodega()">
+      <div class="form-group">
+        <label for="partida">Partida:</label>
+        <input type="text" id="partida" [(ngModel)]="nuevoBodega.departure" name="partida" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="Producto">Saco:</label>
+        <input type="text" id="producto" [(ngModel)]="nuevoBodega.coat" name="producto" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="presentacion">Cantidad:</label>
+        <input type="text" id="presentacion" [(ngModel)]="nuevoBodega.amount" name="presentacion" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="precio costo">Disponible:</label>
+        <input type="text" id="precio costo" [(ngModel)]="nuevoBodega.available" name="precio costo" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="precio venta">Utilizado:</label>
+        <input type="text" id="precio venta" [(ngModel)]="nuevoBodega.used" name="precio venta" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="existencia">Cosecha:</label>
+        <input type="text" id="existencia" [(ngModel)]="nuevoBodega.harvest" name="codigo" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="existencia">Fecha Ingreso:</label>
+        <input type="text" id="existencia" [(ngModel)]="nuevoBodega.date" name="codigo" class="form-control" required>
+      </div>
+
+
+
+
+      <button type="submit" class="btn btn-primary">Insertar Producto</button>
+
+
+
+
+      
+      <!-- Agrega un contenedor para las alertas -->
+      
+      <div class="container mt-3">
+        <!-- Alerta de éxito -->
+
+        <div *ngIf="showSuccessAlert" class="alert alert-success">
+          {{ successMessage }}
+        </div>
+
+        <!-- Alerta de error -->
+        <div *ngIf="showErrorAlert" class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
+        
+        <!-- Alerta de validación -->
+        <div *ngIf="showValidationAlert" class="alert alert-danger alert-dismissible fade show mt-3">
+          {{ validationMessage }}
+          
+        </div>
+      </div>
+
+      
+    </form>
+  </div>
+</body>
+</html>

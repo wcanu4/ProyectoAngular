@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NUEVO USUARIO</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="titulo">Nuevo Usuario</h1>
+    <form (submit)="insertarUsuario()" class="two-columns-form">
+      
+      <div class="column">
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" [(ngModel)]="nuevoUsuario.name" name="nombre" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label for="dpi">Dpi:</label>
+          <input type="text" id="dpi" [(ngModel)]="nuevoUsuario.document" name="dpi" class="form-control" required>
+        </div>   
+        <div class="form-group">
+          <label for="telefono">Telefono:</label>
+          <input type="text" id="telefono" [(ngModel)]="nuevoUsuario.phone" name="telefono" class="form-control" required>
+        </div>     
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" id="email" [(ngModel)]="nuevoUsuario.mail" name="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="direccion">Direccion:</label>
+          <input type="text" id="direccion" [(ngModel)]="nuevoUsuario.addres" name="direccion" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="fecha-creacion">Fecha Creacion:</label>
+          <input type="text" id="creacion" [(ngModel)]="nuevoUsuario.creation" name="fecha-creacion" class="form-control" required>
+        </div>  
+      </div>
+      
+
+      <div class="column">
+        <div class="form-group">
+          <label for="usuario">Usuario:</label>
+          <input type="text" id="usuario" [(ngModel)]="nuevoUsuario.user" name="usuario" class="form-control" required>
+        </div> 
+        <div class="form-group">
+          <label for="rol">Rol:</label>
+          <select id="rol" [(ngModel)]="nuevoUsuario.rol" name="rol" class="form-control" required>       
+            <option value="administrador">administrador</option>
+            <option value="Empleado">Empleado</option>
+          </select>
+        </div>
+
+
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="compras">Compras</label>
+              <select id="compras" [(ngModel)]="nuevoUsuario.compras" name="compras" class="form-control">
+                <option value="">Seleccione estado</option>
+                <option value="activado">Activado</option>
+                <option value="desactivado">Desactivado</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="ventas">Ventas</label>
+              <select id="ventas" [(ngModel)]="nuevoUsuario.ventas"name="ventas" class="form-control">
+                <option value="">Seleccione estado</option>
+                <option value="activado">Activado</option>
+                <option value="desactivado">Desactivado</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agrega dos grupos de select para Inventario y Procesos -->
+<div class="row">
+  <div class="col">
+    <div class="form-group">
+      <label for="inventario">Inventario</label>
+      <select id="inventario"[(ngModel)]="nuevoUsuario.inventario" name="inventario" class="form-control">
+        <option value="">Seleccione estado</option>
+        <option value="activado">Activado</option>
+        <option value="desactivado">Desactivado</option>
+      </select>
+    </div>
+  </div>
+  <div class="col">
+    <div class="form-group">
+      <label for="procesos">Procesos</label>
+      <select id="procesos" [(ngModel)]="nuevoUsuario.procesos" name="procesos" class="form-control">
+        <option value="">Seleccione estado</option>
+        <option value="activado">Activado</option>
+        <option value="desactivado">Desactivado</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- Agrega dos grupos de select para Reportes y Usuarios -->
+<div class="row">
+  <div class="col">
+    <div class="form-group">
+      <label for="reportes">Reportes</label>
+      <select id="reportes"  [(ngModel)]="nuevoUsuario.reportes" name="reportes" class="form-control">
+        <option value="">Seleccione estado</option>
+        <option value="activado">Activado</option>
+        <option value="desactivado">Desactivado</option>
+      </select>
+    </div>
+  </div>
+  <div class="col">
+    <div class="form-group">
+      <label for="usuarios">Usuarios</label>
+      <select id="usuarios" [(ngModel)]="nuevoUsuario.usuarios" name="usuarios" class="form-control">
+        <option value="">Seleccione estado</option>
+        <option value="activado">Activado</option>
+        <option value="desactivado">Desactivado</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="form-group">
+      <label for="bodega">Bodega</label>
+      <select id="bodega"  [(ngModel)]="nuevoUsuario.bodega" name="bodega" class="form-control">
+        <option value="">Seleccione estado</option>
+        <option value="activado">Activado</option>
+        <option value="desactivado">Desactivado</option>
+      </select>
+    </div>
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="form-group">
+          <label for="pass">Contraseña:</label>
+          <input type="password" id="pass" [(ngModel)]="nuevoUsuario.pass" name="pass" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="state">Estado:</label>
+          <select id="state" [(ngModel)]="nuevoUsuario.state" name="state" class="form-control" required>       
+            <option value="Activo">Activo</option>
+            <option value="Inactivo">Inactivo</option>
+          </select>
+        </div>     
+      </div>
+      <div class="form-group">
+      <button type="submit" class="btn btn-primary">Insertar Usuario</button>  
+      </div>
+<!-- Agrega un contenedor para las alertas -->
+      
+<div class="container mt-3">
+  <!-- Alerta de éxito -->
+
+  <div class="form-group">
+  <div *ngIf="showSuccessAlert" class="alert alert-success"> {{ successMessage }}</div>
+</div>
+
+  <!-- Alerta de error -->
+  <div *ngIf="showErrorAlert" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+  
+  <!-- Alerta de validación -->
+  <div *ngIf="showValidationAlert" class="alert alert-danger alert-dismissible fade show mt-3">
+    {{ validationMessage }}
+    
+  </div>
+</div>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<div class="container">
+  <div class="title"> 
+<h1>Lista de Pergamino</h1>
+<div class="input-container">
+
+
+  <form class="d-flex ">    
+    </form>
+  </div>
+  </div>
+  <div class="search-and-filter">
+    <input type="text" [(ngModel)]="searchText" placeholder="Buscar...">    
+  </div>
+  <div class="table-container">
+    <table class="table table-hover table-bordered table-striped">
+  <thead>
+      <tr>
+        <th (click)="sortTable('id')">
+          <span>Id</span>
+          <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id' && sortDirection === -1}">&#8597;</span>
+      </th>
+      <th (click)="sortTable('departure')">
+        <span>Partida</span>
+        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'departure' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'departure' && sortDirection === -1}">&#8597;</span>
+      </th>
+      <th (click)="sortTable('coat')">
+        <span>Saco</span>
+        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'coat' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'coat' && sortDirection === -1}">&#8597;</span>
+      </th>
+      <th (click)="sortTable('amount')">
+        <span>Cantidad</span>
+        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'amount' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'amount' && sortDirection === -1}">&#8597;</span>
+      </th>
+      <th (click)="sortTable('available')">
+        <span>Disponible</span>
+        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'available' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'available' && sortDirection === -1}">&#8597;</span>
+      </th>
+      <th (click)="sortTable('used')">
+        <span>Utilizados</span>
+        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'used' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'used' && sortDirection === -1}">&#8597;</span>
+      </th>
+      <th (click)="sortTable('harvest')">
+        <span>Cosecha</span>
+        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'harvest' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'harvest' && sortDirection === -1}">&#8597;</span>
+      </th>
+      <th (click)="sortTable('date')">
+        <span>Fecha Ingreso</span>
+        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'date' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'date' && sortDirection === -1}">&#8597;</span>
+      </th> <!--  columna para los botones -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let store of visibleStores" class="table/active">
+        <td>{{ store.id }}</td>
+        <td>{{ store.departure }}</td>
+        <td>{{ store.coat }}</td>
+        <td>{{ store.amount }}</td>
+        <td>{{ store.available }}</td>
+        <td>{{ store.used }}</td>
+        <td>{{ store.harvest }}</td>
+        <td>{{ store.date }}</td>
+        <td>
+          <button (click)="showDeleteConfirmation(store)" type="button" class="btn btn-info btn-sm">Eliminar</button>
+          <button (click)="editarStore(store)" type="button" class="btn btn-secondary btn-sm ms-2">Editar</button>
+        </td>
+      </tr>      
+
+      <div class="pagination move-right"><!-- Inicio de la paginacion-->
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" (click)="previousPage()">&laquo;</a>
+          </li>
+          <li class="page-item active">
+            <a class="page-link" (click)="previousPage()">1</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" (click)="nextPage()">2</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" (click)="nextPage()">&raquo;</a>
+          </li>
+        </ul>
+      </div><!-- Fin de la paginacion-->    
+      
+      <div class="confirmation-" *ngIf="showConfirmationModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Eliminar Producto</h5>
+              <button  (click)="cancelDelete()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">          
+                <span aria-hidden="false"></span>
+              </button>
+            </div>
+            <div class="modal-body">  
+              <div class="form-group has-success">              
+              <p>¿Estás seguro de que deseas eliminar al Producto {{ storeToDelete?.code }}?</p>  
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button (click)="confirmDelete()" type="button" class="btn btn-primary" data-bs-dismiss="modal" >Guardar</button>
+                <button (click)="cancelDelete()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+      
+

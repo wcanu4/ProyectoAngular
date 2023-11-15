@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="title"> 
+<h1>Lista de usuarios</h1>
+<div class="input-container">
+  <form class="d-flex ">
+  </form><!--Boton para agregar nuevo usuario -->
+</div>
+</div>
+<div class="search-and-filter">
+  <input type="text" [(ngModel)]="searchText" placeholder="Buscar...">
+</div>
+<div class="table-container">
+  <table class="table table-hover table-bordered table-striped">        
+    <thead>
+      <tr>                     
+        <th (click)="sortTable('id')">
+          <span>Id</span>
+          <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id' && sortDirection === -1}">&#8597;</span>
+      </th>
+       <th (click)="sortTable('name')">
+        <span>Nombre</span>
+        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'name' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'name' && sortDirection === -1}">&#8597;</span>
+      </th>
+      <th (click)="sortTable('user')">
+      <span>Usuario</span>
+      <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'user' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'user' && sortDirection === -1}">&#8597;</span>
+    </th>
+     <th (click)="sortTable('rol')">
+      <span>Rol</span>
+      <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'rol' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'rol' && sortDirection === -1}">&#8597;</span>
+      </th>
+        <th scope="col"></th>  <!--  columna para los botones -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of visibleUsers" class="table/active">
+        <td >{{ user.id }}</td>
+        <td >{{ user.name }}</td>
+        <td >{{ user.user }}</td>
+        <td >{{ user.rol }}</td>
+        <td>
+          <button (click)="showDeleteConfirmation(user)" type="button" class="btn btn-info btn-sm">Eliminar</button>
+          <button (click)="editarUsuario(user)" type="button" class="btn btn-secondary btn-sm ms-2">Editar</button>
+        </td>
+      </tr>      
+      <div class="pagination move-right"><!-- Inicio de la paginacion-->
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" (click)="previousPage()">&laquo;</a>
+          </li>
+          <li class="page-item active">
+            <a class="page-link" (click)="previousPage()">1</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" (click)="nextPage()">2</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" (click)="nextPage()">&raquo;</a>
+          </li>
+        </ul>
+      </div><!-- Fin de la paginacion-->    
+
+      <div class="confirmation-" *ngIf="showConfirmationModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Eliminar Usuario</h5>
+              <button  (click)="cancelDelete()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">          
+                <span aria-hidden="false"></span>
+              </button>
+            </div>
+
+            <div class="alert alert-dismissible alert-success">
+              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+              <p>¿Estás seguro de que deseas eliminar al usuario {{ userToDelete?.nombre }}?</p>  
+            </div>      
+
+            <div class="modal-footer">
+              <button (click)="confirmDelete()" type="button" class="btn btn-primary" data-bs-dismiss="modal" >Eliminar</button>
+                <button (click)="cancelDelete()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+
+          </div>
+        </div>      
+      </div>
+    
+    </tbody>
+  </table>
+
+</div>
+</div>

@@ -1,0 +1,108 @@
+<div class="container">
+    <div class="title"> 
+  <h1>Listado de productos</h1>
+  <div class="input-container">
+  
+  
+    <form class="d-flex ">    
+      </form>
+      <button type="button" move-right class="btn btn-primary" (click)="abrirModalNuevoProducto()">Nuevo</button>
+    </div>
+    </div>
+    <div class="search-and-filter">
+      <input type="text" [(ngModel)]="searchText" placeholder="Buscar...">    
+    </div>
+    <div class="table-container">
+      <table class="table table-hover table-bordered table-striped">
+        <thead>
+            <tr>
+              <th (click)="sortTable('id')">
+                <span>ID</span>
+                <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id' && sortDirection === -1}">&#8597;</span>
+              </th>
+              <th (click)="sortTable('nombreProducto')">
+                <span>Nombre del Producto</span>
+                <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'nombreProducto' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'nombreProducto' && sortDirection === -1}">&#8597;</span>
+              </th>
+              <th (click)="sortTable('tipoProducto')">
+                <span>Tipo de Producto</span>
+                <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'tipoProducto' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'tipoProducto' && sortDirection === -1}">&#8597;</span>
+              </th>
+              <th (click)="sortTable('descripcion')">
+                <span>Descripción</span>
+                <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'descripcion' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'descripcion' && sortDirection === -1}">&#8597;</span>
+              </th>
+              <th (click)="sortTable('precio')">
+                <span>Precio</span>
+                <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'precio' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'precio' && sortDirection === -1}">&#8597;</span>
+              </th>
+              <th (click)="sortTable('stock')">
+                <span>Inventario</span>
+                <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'stock' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'stock' && sortDirection === -1}">&#8597;</span>
+              </th>
+              <th (click)="sortTable('fechaVencimiento')">
+                <span>Fecha de Creacion</span>
+                <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'fechaVencimiento' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'fechaVencimiento' && sortDirection === -1}">&#8597;</span>
+              </th>
+            </tr>
+          </thead>
+          
+        
+      <tbody>
+        <tr *ngFor="let producto of visibleProveedores" class="table-active">
+            <td>{{ producto.id }}</td>
+            <td>{{ producto.nombreProducto }}</td>
+            <td>{{ producto.tipoProducto }}</td>
+            <td>{{ producto.descripcion }}</td>
+            <td>{{ producto.precio }}</td>
+            <td>{{ producto.stock }}</td>
+            <td>{{ producto.fechaVencimiento }}</td>
+          <td>
+            <button (click)="showDeleteConfirmation(producto)" type="button" class="btn btn-info btn-sm">Eliminar</button>
+            <button (click)="editarProveedor(producto)" type="button" class="btn btn-secondary btn-sm ms-2">Editar</button>
+          </td>
+        </tr>
+        
+  
+        <div class="pagination move-right"><!-- Inicio de la paginacion-->
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" (click)="previousPage()">&laquo;</a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" (click)="previousPage()">1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" (click)="nextPage()">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" (click)="nextPage()">&raquo;</a>
+            </li>
+          </ul>
+        </div><!-- Fin de la paginacion-->    
+        
+        <div class="confirmation-" *ngIf="showConfirmationModal">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Eliminar Producto</h5>
+                <button  (click)="cancelDelete()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">          
+                  <span aria-hidden="false"></span>
+                </button>
+              </div>
+              <div class="modal-body">  
+                <div class="form-group has-success">              
+                <p>¿Estás seguro de que deseas eliminar el Producto {{ storeToDelete?.code }}?</p>  
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button (click)="confirmDelete()" type="button" class="btn btn-primary" data-bs-dismiss="modal" >Guardar</button>
+                  <button (click)="cancelDelete()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </tbody>
+    </table>
+  </div>
+  

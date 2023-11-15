@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NUEVO USUARIO</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="titulo">PROCESO DE LAVADO</h1>
+      <form (submit)="insertarBeneficio()">
+        
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="compras">Quintales de cafe Maduro</label>
+              <input type="text" id="partida" [(ngModel)]="nuevoBeneficio.quintales" name="partida" class="form-control" required>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">              
+              <label for="partida">No. de Partida</label>
+              <input type="text" id="partida" [(ngModel)]="nuevoBeneficio.partida" name="partida" class="form-control" required>
+            </div>
+          </div>
+        </div>
+          <!-- # 1  DESPULPADO ------Aqui inica lo de horarios -->
+
+          <div class="column">
+            <div class="column">
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                <label for="d1">Inicio</label>
+                <input type="text" id="d1" [(ngModel)]="nuevoBeneficio.d1" name="d1" class="form-control" required>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="d2">Final</label>
+                <input type="text" id="d2" [(ngModel)]="nuevoBeneficio.d2" name="d2" class="form-control" required>
+              </div>
+            </div>
+          </div>
+        <div class="form-group">
+          <label for="despulpado">Comentario: Proceso de Despulpado </label>
+          <input type="text" id="despulpado" [(ngModel)]="nuevoBeneficio.despulpado" name="despulpado" class="form-control" required>
+        </div> 
+        </div>
+        
+
+                     <!-- # 2  FERMENTADO ------Aqui inica lo de horarios -->
+
+                  <div class="column">
+                    <div class="column">
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group">
+                        <label for="f1">Inicio</label>
+                        <input type="text" id="f1" [(ngModel)]="nuevoBeneficio.f1" name="f1" class="form-control" required>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="f2">Final</label>
+                        <input type="text" id="f2" [(ngModel)]="nuevoBeneficio.f2" name="f2" class="form-control" required>
+                      </div>
+                    </div>
+                  </div>
+                <div class="form-group">
+                  <label for="fermentacion">Comentario: Proceso de Fermentacion </label>
+                  <input type="text" id="fermentacion" [(ngModel)]="nuevoBeneficio.fermentacion" name="fermentacion" class="form-control" required>
+                </div> 
+                </div>
+                  </div>
+
+          <!-- # 3  LAVADO ------Aqui inica lo de horarios -->
+        <div class="column">
+          <div class="column">
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="l1">Inicio</label>
+                  <input type="text" id="l1" [(ngModel)]="nuevoBeneficio.l1" name="l1" class="form-control" required>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="l2">Final</label>
+                  <input type="text" id="l2" [(ngModel)]="nuevoBeneficio.l2" name="l2" class="form-control" required>
+                </div>
+              </div>
+            </div>
+          <div class="form-group">
+            <label for="lavado">Comentario: Proceso de Lavado </label>
+            <input type="text" id="lavado" [(ngModel)]="nuevoBeneficio.lavado" name="lavado" class="form-control" required>
+          </div> 
+          </div>
+        </div>
+
+
+
+<!-- # 4  SECADO ------Aqui inica lo de horarios -->
+        <div class="column">
+          <div class="column">
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="s1">Inicio</label>
+                  <input type="text" id="s1" [(ngModel)]="nuevoBeneficio.s1" name="s1" class="form-control" required>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="s2">Final</label>
+                  <input type="text" id="s2" [(ngModel)]="nuevoBeneficio.s2" name="s2" class="form-control" required>
+                </div>
+              </div>
+            </div>
+          <div class="form-group">
+            <label for="secado">Comentario: Proceso de Secado </label>
+            <input type="text" id="secado" [(ngModel)]="nuevoBeneficio.secado" name="secado" class="form-control" required>
+          </div> 
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="pergamino">Quintales de Pergamino</label>
+              <input type="text" id="pergamino" [(ngModel)]="nuevoBeneficio.pergamino" name="pergamino" class="form-control" required>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">  
+              <label for="fecha_final">Fecha de salida</label>
+              <input type="text" id="fecha_final" [(ngModel)]="nuevoBeneficio.fecha_final" name="fecha_final" class="form-control" required>              
+            </div>
+          </div>
+        </div>
+
+   
+      </div>
+      <button type="submit" class="btn btn-primary">Crear Proceso</button>
+    </form>
+  </div>
+</body>
+</html>

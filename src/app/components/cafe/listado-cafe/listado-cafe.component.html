@@ -1,0 +1,103 @@
+<div class="container">
+  <div class="title"> 
+<h1>Cafe comprado en el día</h1>
+<div class="input-container">
+
+
+  <form class="d-flex ">    
+    </form>    
+  </div>
+  </div>
+  <div class="search-and-filter">
+    <input type="text" [(ngModel)]="searchText" placeholder="Buscar...">    
+  </div>
+  <div class="table-container">
+    <table class="table table-hover table-bordered table-striped">
+  <thead>
+      <tr>
+      <th (click)="sortTable('libra')">
+        <span>libra</span>
+        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'libra' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'libra' && sortDirection === -1}">&#8597;</span>
+      </th>
+      <th (click)="sortTable('precio')">
+        <span>Precio</span>
+        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'precio' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'precio' && sortDirection === -1}">&#8597;</span>
+      </th>
+      <th (click)="sortTable('cosecha')">
+        <span>cosecha</span>
+        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'cosecha' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'cosecha' && sortDirection === -1}">&#8597;</span>
+      </th>
+
+
+      <!--  columna para los botones -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cafe of visibleCafe" class="table/active">
+        <td>{{ cafe.libra }}</td>
+        <td>{{ cafe.precio }}</td>
+        <td>{{ cafe.cosecha }}</td>
+        
+        <!--<td> Es la opcion de habilitar los botones de editar e eliminar 
+          <button (click)="showDeleteConfirmation(cafe)" type="button" class="btn btn-info btn-sm">Eliminar</button>
+          <button (click)="editarCafe(cafe)" type="button" class="btn btn-secondary btn-sm ms-2">Editar</button>
+         
+        </td>
+        -->
+      </tr>      
+
+      <div class="pagination move-right"><!-- Inicio de la paginacion-->
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" (click)="previousPage()">&laquo;</a>
+          </li>
+          <li class="page-item active">
+            <a class="page-link" (click)="previousPage()">1</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" (click)="nextPage()">2</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" (click)="nextPage()">&raquo;</a>
+          </li>
+        </ul>
+      </div><!-- Fin de la paginacion-->    
+      
+      <div class="confirmation-" *ngIf="showConfirmationModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Eliminar Producto</h5>
+              <button  (click)="cancelDelete()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">          
+                <span aria-hidden="false"></span>
+              </button>
+            </div>
+            <div class="modal-body">  
+              <div class="form-group has-success">              
+              <p>¿Estás seguro de que deseas eliminar al Producto {{ storeToDelete?.code }}?</p>  
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button (click)="confirmDelete()" type="button" class="btn btn-primary" data-bs-dismiss="modal" >Guardar</button>
+                <button (click)="cancelDelete()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                   
+            </div>
+          </div>
+        </div>
+      </div>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+      
+

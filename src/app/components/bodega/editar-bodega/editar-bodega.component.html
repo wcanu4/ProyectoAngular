@@ -1,0 +1,45 @@
+<div class="modal-">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Productos</h5>
+          <button  (click)="cancelar()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">          
+          <span aria-hidden="false"></span>
+        </button>
+      </div>      
+      <div class="modal-body">         
+        <div class="form-group has-success">
+          <label class="form-label mt-4"><font style="vertical-align: inherit;">Partida</font></label>
+          <input type="text"  class="form-control" id="departure" [(ngModel)]="bodega.departure" >
+        </div>
+        <div class="form-group has-success">
+          <label class="form-label mt-4"><font style="vertical-align: inherit;">Saco</font></label>
+          <input type="text"  class="form-control" id="coat" [(ngModel)]="bodega.coat" >
+        </div>
+        <div class="form-group has-success">
+          <label class="form-label mt-4"><font style="vertical-align: inherit;">Cantidad </font></label>
+          <input type="text"  class="form-control" id="code" [(ngModel)]="bodega.amount" >
+        </div>
+        <div class="form-group has-success">
+          <label class="form-label mt-4"><font style="vertical-align: inherit;">Disponible</font></label>
+          <input type="text"  class="form-control" id="code" [(ngModel)]="bodega.available" >
+        </div>
+        <div class="form-group has-success">
+          <label class="form-label mt-4"><font style="vertical-align: inherit;">Utilizado</font></label>
+          <input type="text"  class="form-control" id="code" [(ngModel)]="bodega.used" >
+        </div>
+        <div class="form-group has-success">
+          <label class="form-label mt-4"><font style="vertical-align: inherit;">Cosecha</font></label>
+          <input type="text"  class="form-control" id="code" [(ngModel)]="bodega.harvest" >
+        </div>
+        <div class="form-group has-success">
+          <label class="form-label mt-4"><font style="vertical-align: inherit;">Fecha Ingreso</font></label>
+          <input type="text"  class="form-control" id="code" [(ngModel)]="bodega.date" >
+        </div>
+      <div class="modal-footer">
+        <button (click)="guardarCambios()" type="button" class="btn btn-primary" data-bs-dismiss="modal" >Guardar</button>
+        <button (click)="cancelar()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

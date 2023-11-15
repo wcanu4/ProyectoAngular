@@ -1,0 +1,157 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 900px; /* Asegura que el ancho sea en píxeles */
+  margin-left: 350px; /* Agrega margen izquierdo */
+  padding-top: 70px; /* Agrega espacio superior */
+  max-height: 660px; /* Altura máxima para habilitar desplazamiento vertical */
+  overflow-x: auto; /* Riel de desplazamiento horizontal si es necesario */
+  overflow-y: auto; /* Riel de desplazamiento vertical si es necesario */
+  font-size: 12px;
+}
+
+.selection-section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color:  #40c19f; /* Color de fondo */
+}
+
+
+.barraco-selection,
+.cliente-selection {
+  flex: 1;
+  padding: 1px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  background-color: #fff; /* Color de fondo */
+}
+
+.details-section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding:10px;
+  border: 20px solid #40c19f;
+}
+
+.barraco-details,
+.cliente-details {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  background-color: #fff; /* Color de fondo */
+}
+
+.factura {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  background-color: #f2f2f2; /* Color de fondo */
+}
+
+/* Estilo para botón Facturar */
+button {
+  background-color: #007bff; /* Color de fondo del botón */
+  color: #fff; /* Color del texto del botón */
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* Cambiar color al pasar el mouse por encima del botón */
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para los encabezados */
+h1, h2 {
+  color: #333;
+/* Color del texto de encabezados */
+}
+
+/* Estilo para el mensaje de "Facturado con éxito" */
+p.success-message {
+  color: #28a745; /* Color verde para mensajes de éxito */
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/********************************NOMBRES Y INPUTS*******************/
+/* Estilo para etiquetas (labels) */
+label {
+  display: block; /* Coloca cada etiqueta en una línea nueva */
+  font-weight: bold; /* Hace que las etiquetas sean más visibles */
+  margin-bottom: 2px; /* Agrega un pequeño espacio entre las etiquetas y los campos de entrada */
+}
+
+/* Estilo para campos de entrada (inputs) */
+input[type="text"] {
+  width: 100%; /* Ajusta el ancho de los campos de entrada al 100% del contenedor */
+  padding: 1px; /* Agrega un poco de espacio alrededor del texto en los campos de entrada */
+  margin-bottom: 1px; /* Agrega espacio entre los campos de entrada */
+}
+
+/* Estilo para el botón de facturar */
+button {
+  background-color: #007bff; /* Color de fondo azul */
+  color: #fff; /* Color de texto blanco */
+  padding: 10px 20px; /* Espaciado dentro del botón */
+  border: none; /* Sin bordes */
+  cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+}
+
+/* Estilo para el mensaje de "Facturado con éxito" */
+p.ngIf {
+  color: green; /* Color de texto verde para el mensaje de éxito */
+  font-weight: bold; /* Hace que el mensaje sea más visible */
+}
+
+/******************************************FACTURAR********************************************/
+/* Estilo para la tabla de la factura */
+.factura-table {
+  border-collapse: collapse; /* Fusiona los bordes de la tabla */
+  width: 100%;
+}
+
+/* Estilo para las celdas de la tabla */
+.factura-cell {
+  border: 1px solid #ccc; /* Borde de 1 píxel con color gris claro */
+  padding: 8px; /* Agrega espacio alrededor del contenido de la celda */
+}
+
+/* Estilo para la tabla de la factura */
+.factura-table th {
+  background-color: #40c19f; /* Color de fondo gris claro para encabezados */
+}
+
+/* Estilo para el botón de Facturar */
+button {
+  background-color: #007bff; /* Color de fondo azul */
+  color: #fff; /* Color de texto blanco */
+  padding: 10px 20px; /* Espaciado dentro del botón */
+  margin-top: 10px;
+  cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+}
+
+/* Estilo para los botones de eliminar en la tabla de la factura */
+.factura-table button {
+  background-color: #dc3545; /* Color de fondo rojo para botones de eliminar */
+  color: #fff; /* Color de texto blanco */
+  padding: 5px 10px; /* Espaciado dentro del botón */
+  border: none; /* Sin bordes */
+  cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+}
+
+/* Cambiar color al pasar el mouse por encima del botón de eliminar */
+.factura-table button:hover {
+  background-color: #c82333; /* Color de fondo rojo más oscuro al pasar el mouse */
+}
+
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NUEVO Producto</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="titulo">Nuevo Producto</h1>
+    <form (submit)="insertarProducto()">
+      <div class="form-group">
+        <label for="codigo">Codigo:</label>
+        <input type="text" id="codigo" [(ngModel)]="nuevoProducto.code" name="codigo" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="Producto">Producto:</label>
+        <input type="text" id="producto" [(ngModel)]="nuevoProducto.product" name="producto" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="presentacion">Presentacion:</label>
+        <input type="text" id="presentacion" [(ngModel)]="nuevoProducto.presentation" name="presentacion" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="precio costo">Precio costo:</label>
+        <input type="text" id="precio costo" [(ngModel)]="nuevoProducto.cost_price" name="precio costo" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="precio venta">precio venta:</label>
+        <input type="text" id="precio venta" [(ngModel)]="nuevoProducto.sale_price" name="precio venta" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="existencia">Existencia:</label>
+        <input type="text" id="existencia" [(ngModel)]="nuevoProducto.existence" name="codigo" class="form-control" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Insertar Producto</button>
+      <button (click)="cancelar()" type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+
+      
+      <!-- Agrega un contenedor para las alertas -->
+      
+      <div class="container mt-3">
+        <!-- Alerta de éxito -->
+
+        <div *ngIf="showSuccessAlert" class="alert alert-success">
+          {{ successMessage }}
+        </div>
+
+        <!-- Alerta de error -->
+        <div *ngIf="showErrorAlert" class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
+        
+        <!-- Alerta de validación -->
+        <div *ngIf="showValidationAlert" class="alert alert-danger alert-dismissible fade show mt-3">
+          {{ validationMessage }}          
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

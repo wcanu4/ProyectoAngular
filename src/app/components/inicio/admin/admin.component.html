@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra lateral</title>
+</head>
+<body>
+    <div class="sidebar">
+        <button class="menu-button"></button>
+        <div class="dropdown">
+            <div class="menu-item">                                                                                    
+            </div>
+            <div class="menu-item">                
+                <button class="btn" (click)="toggleCompra()" [disabled]="!checkPermisoCompras()">COMPRA</button>                                            
+                <div class="sub-menu" *ngIf="OpenCompra">
+                    <button class="sub-btn" (click)="FacturacionCompra()">GENERAR VALE</button>   
+                    <button class="sub-btn" (click)="listadoProveedor()">PROVEEDORES</button>    
+                    <button class="sub-btn" (click)="listadoProductoCompras()">LISTA PRODUCTOS</button>                
+
+              
+                </div>
+            </div>
+            <div class="menu-item">
+                <button class="btn" (click)="toggleProducto()" [disabled]="!checkPermisoVentas()">VENTAS</button>                                            
+                <div class="sub-menu" *ngIf="OpenProducto">
+                    <button class="sub-btn" (click)="listadoProducto()">LISTA PRODUCTOS</button>
+                   <button class="sub-btn" (click)="listadoCliente()">LISTA CLIENTES</button>
+                    <button class="sub-btn" (click)="Facturacion()">FACTURA</button>                                                                                                  
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <button class="btn" (click)="toggleBodega()"  [disabled]="!checkPermisoBodega()">BODEGA</button>                                            
+                <div class="sub-menu" *ngIf="OpenBodega">
+                    <button class="sub-btn" (click)="crearBodega()">CREAR PARTIDA</button>
+                    <button class="sub-btn" (click)="listadoBodega()">PARTIDAS</button>
+                </div>
+            </div> 
+
+            <div class="menu-item">
+                <button class="btn" (click)="toggleProceso()"  [disabled]="!checkPermisoProcesos()">PROCESOS</button>                                            
+                <div class="sub-menu" *ngIf="OpenProceso">                    
+                    <button class="sub-btn" (click)="crearBeneficio()">BENEFICIO</button>                    
+                    <button class="sub-btn" (click)="listadoBeneficio()">PROCESOS-BENEFICIO</button>
+                </div>
+            </div> 
+
+            <div class="menu-item">
+                <button class="btn" (click)="toggleReportes()" [disabled]="!checkPermisoReportes()">REPORTES</button>
+                <div class="sub-menu" *ngIf="OpenReportes">
+                  <div class="sub-btn-container">
+                    <button class="sub-btn" (click)="compras()">COMPRAS</button>
+                  </div>
+                  <div class="sub-btn-container">
+                    <button class="sub-btn" (click)="ventas()">VENTAS</button>
+                  </div>
+                </div>
+              </div>
+
+
+            <div class="menu-item">
+                <button class="btn" (click)="toggleUsuario()" [disabled]="!checkPermisoUsuarios()" >USUARIOS</button>                                            
+                <div class="sub-menu" *ngIf="OpenUsuario">
+                    <button class="sub-btn" (click)="crearUsuario()">CREAR USUARIO</button>
+                    <button class="sub-btn" (click)="listadoUsuario()">LISTADO</button>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <div class="content">
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<div class="modal-">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Proveedor</h5>
+          <button  (click)="cancelar()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">          
+          <span aria-hidden="false"></span>
+        </button>
+      </div>      
+      <div class="modal-body">         
+        <div class="form-group has-success">
+          <label class="form-label mt-4"><font style="vertical-align: inherit;">Libra</font></label>
+          <input type="text"  class="form-control" id="nit" [(ngModel)]="cafe.libra" >
+        </div>
+        <div class="form-group has-success">
+          <label class="form-label mt-4"><font style="vertical-align: inherit;">precio</font></label>
+          <input type="text"  class="form-control" id="dpi" [(ngModel)]="cafe.precio" >
+        </div>
+        <div class="form-group has-success">
+          <label class="form-label mt-4"><font style="vertical-align: inherit;">cosecha </font></label>
+          <input type="text"  class="form-control" id="nombre" [(ngModel)]="cafe.cosecha" >
+        </div>
+
+      <div class="modal-footer">
+        <button (click)="guardarCambios()" type="button" class="btn btn-primary" data-bs-dismiss="modal" >Guardar</button>
+        <button (click)="cancelar()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

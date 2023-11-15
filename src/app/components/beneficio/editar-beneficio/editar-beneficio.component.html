@@ -1,0 +1,153 @@
+<div class="modal-">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Productos</h5>
+        
+          <button  (click)="cancelar()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">          
+          <span aria-hidden="false"></span>
+        </button>
+      </div>      
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="compras">Quintales de cafe Maduro</label>
+            <input type="text" id="partida" [(ngModel)]="bodega.quintales" name="partida" class="form-control" required>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">              
+            <label for="partida">No. de Partida</label>
+            <input type="text" id="partida" [(ngModel)]="bodega.partida" name="partida" class="form-control" required>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="column">
+        <div class="column">
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+            <label for="d1">Inicio</label>
+            <input type="text" id="d1" [(ngModel)]="bodega.d1" name="d1" class="form-control" required>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="d2">Final</label>
+            <input type="text" id="d2" [(ngModel)]="bodega.d2" name="d2" class="form-control" required>
+          </div>
+        </div>
+      </div>
+    <div class="form-group">
+      <label for="despulpado">Comentario: Proceso de Despulpado </label>
+      <input type="text" id="despulpado" [(ngModel)]="bodega.despulpado" name="despulpado" class="form-control" required>
+    </div> 
+    </div>
+
+
+
+           
+
+                     <!-- # 2  FERMENTADO ------Aqui inica lo de horarios -->
+
+                     <div class="column">
+                      <div class="column">
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                          <label for="f1">Inicio</label>
+                          <input type="text" id="f1" [(ngModel)]="bodega.f1" name="f1" class="form-control" required>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="f2">Final</label>
+                          <input type="text" id="f2" [(ngModel)]="bodega.f2" name="f2" class="form-control" required>
+                        </div>
+                      </div>
+                    </div>
+                  <div class="form-group">
+                    <label for="fermentacion">Comentario: Proceso de Fermentacion </label>
+                    <input type="text" id="fermentacion" [(ngModel)]="bodega.fermentacion" name="fermentacion" class="form-control" required>
+                  </div> 
+                  </div>
+                    </div>
+  
+            <!-- # 3  LAVADO ------Aqui inica lo de horarios -->
+          <div class="column">
+            <div class="column">
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="l1">Inicio</label>
+                    <input type="text" id="l1" [(ngModel)]="bodega.l1" name="l1" class="form-control" required>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="l2">Final</label>
+                    <input type="text" id="l2" [(ngModel)]="bodega.l2" name="l2" class="form-control" required>
+                  </div>
+                </div>
+              </div>
+            <div class="form-group">
+              <label for="lavado">Comentario: Proceso de Lavado </label>
+              <input type="text" id="lavado" [(ngModel)]="bodega.lavado" name="lavado" class="form-control" required>
+            </div> 
+            </div>
+          </div>
+  
+  
+  
+  <!-- # 4  SECADO ------Aqui inica lo de horarios -->
+          <div class="column">
+            <div class="column">
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="s1">Inicio</label>
+                    <input type="text" id="s1" [(ngModel)]="bodega.s1" name="s1" class="form-control" required>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="s2">Final</label>
+                    <input type="text" id="s2" [(ngModel)]="bodega.s2" name="s2" class="form-control" required>
+                  </div>
+                </div>
+              </div>          
+            <div class="form-group">
+              <label for="secado">Comentario: Proceso de Secado </label>
+              <input type="text" id="secado" [(ngModel)]="bodega.secado" name="secado" class="form-control" required>
+            </div> 
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="pergamino">Quintales de Pergamino</label>
+                <input type="text" id="pergamino" [(ngModel)]="bodega.pergamino" name="pergamino" class="form-control" required>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">  
+                <label for="fecha_final">Fecha de salida</label>
+                <input type="text" id="fecha_final" [(ngModel)]="bodega.fecha_final" name="fecha_final" class="form-control" required>              
+              </div>
+            </div>
+          </div>
+  
+
+
+      <div class="modal-footer">
+        <button (click)="guardarCambios()" type="button" class="btn btn-primary" data-bs-dismiss="modal" >Guardar</button>
+        <button (click)="cancelar()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

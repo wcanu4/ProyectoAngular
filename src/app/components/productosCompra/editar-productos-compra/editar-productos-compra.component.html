@@ -1,0 +1,44 @@
+<div class="modal-">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Editar Producto</h5>
+            <button  (click)="cancelar()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">          
+            <span aria-hidden="false"></span>
+          </button>
+        </div>      
+        <div class="modal-body">
+            <div class="form-group has-success">
+              <label class="form-label mt-4"><font style="vertical-align: inherit;">Nombre del Producto</font></label>
+              <input type="text" class="form-control" id="nombreProducto" [(ngModel)]="proveedor.nombreProducto">
+            </div>
+            <div class="form-group has-success">
+              <label class="form-label mt-4"><font style="vertical-align: inherit;">Tipo de Producto</font></label>
+              <input type="text" class="form-control" id="tipoProducto" [(ngModel)]="proveedor.tipoProducto">
+            </div>
+            <div class="form-group has-success">
+              <label class="form-label mt-4"><font style="vertical-align: inherit;">Descripción</font></label>
+              <input type="text" class="form-control" id="descripcion" [(ngModel)]="proveedor.descripcion">
+            </div>
+            <div class="form-group has-success">
+              <label class="form-label mt-4"><font style="vertical-align: inherit;">Precio</font></label>
+              <input type="text" class="form-control" id="precio" [(ngModel)]="proveedor.precio">
+            </div>
+            <div class="form-group has-success">
+              <label class="form-label mt-4"><font style="vertical-align: inherit;">Invetario</font></label>
+              <input type="text" class="form-control" id="stock" [(ngModel)]="proveedor.stock">
+            </div>
+            <div class="form-group has-success">
+              <label class="form-label mt-4"><font style="vertical-align: inherit;">Fecha de Compra</font></label>
+              <input type="text" class="form-control" id="fechaVencimiento" [(ngModel)]="proveedor.fechaVencimiento">
+            </div>
+            
+          </div>
+          
+        <div class="modal-footer">
+          <button (click)="guardarCambios()" type="button" class="btn btn-primary" data-bs-dismiss="modal" >Guardar</button>
+          <button (click)="cancelar()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>

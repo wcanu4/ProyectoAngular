@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuevo Cliente</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="titulo">Nuevo cliente</h1>
+    <form (submit)="insertar()">
+      <div class="form-group">
+        <label for="codigo">NIT:</label>
+        <input type="text" id="nit" [(ngModel)]="contenedorDB.nit" name="nit" class="form-control" required placeholder="">
+      </div>
+      <div class="form-group">
+        <label for="Producto">Nombre:</label>
+        <input type="text" id="nombre" [(ngModel)]="contenedorDB.nombre" name="nombre" class="form-control" required placeholder="">
+      </div>
+      <div class="form-group">
+        <label for="presentacion">Telefono:</label>
+        <input type="text" id="telefono" [(ngModel)]="contenedorDB.telefono" name="telefono" class="form-control" required placeholder="">
+      </div>
+      <div class="form-group">
+        <label for="precio costo">Correo:</label>
+        <input type="text" id="correo" [(ngModel)]="contenedorDB.correo" name="correo" class="form-control" required placeholder="">
+      </div>
+      <div class="form-group">
+        <label for="precio venta">Direccion:</label>
+        <input type="text" id="direccion" [(ngModel)]="contenedorDB.direccion" name="direccion" class="form-control" required placeholder="">
+      </div>
+
+
+      <button type="submit" class="btn btn-primary">Insertar Cliente</button>
+      <button (click)="cancelar()" type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+
+      
+      <!-- Agrega un contenedor para las alertas -->
+      
+      <div class="container mt-3">
+        <!-- Alerta de éxito -->
+
+        <div *ngIf="showSuccessAlert" class="alert alert-success">
+          {{ successMessage }}
+        </div>
+
+        <!-- Alerta de error -->
+        <div *ngIf="showErrorAlert" class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
+        
+        <!-- Alerta de validación -->
+        <div *ngIf="showValidationAlert" class="alert alert-danger alert-dismissible fade show mt-3">
+          {{ validationMessage }}          
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

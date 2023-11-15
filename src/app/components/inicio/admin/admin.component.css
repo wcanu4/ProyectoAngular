@@ -1,0 +1,59 @@
+/* Estilos de la barra lateral */
+.sidebar {
+    background-color: #807f7e; /* Color café */
+    width: 200px;
+    height: 200%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 10px;
+}
+
+.menu-button {
+    background-color: transparent;
+    border: none;
+    color: rgb(0, 0, 0);
+    display: block;
+    width: 90%;
+    text-align: left;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* Estilos del menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #aa6c40; /* Color café */
+    min-width: 100px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Estilos del contenido principal */
+.content {
+    margin-left: 220px; /* Ajusta el margen izquierdo para dejar espacio para la barra lateral */
+    padding: 20px;
+}
+
+.title{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
