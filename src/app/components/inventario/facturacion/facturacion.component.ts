@@ -222,7 +222,7 @@ async generarFacturaPDF(clienteFactura: any, itemsFactura: any) {
 
 
   // Datos de la empresa (quemados)
-  page.drawText('MISIÓN SAN LUCAS TOLIMÁN, SOCIEDAD ANÓNIMA', {
+  page.drawText('MISIÓN SAN LUCAS TOLIMÁN, S.A', {
     x: 50,
     y: height - 5 * fontSize,
     size: fontSize,
