@@ -222,13 +222,13 @@ async generarFacturaPDF(clienteFactura: any, itemsFactura: any) {
 
 
   // Datos de la empresa (quemados)
-  page.drawText('Empresa XYZ', {
+  page.drawText('MISIÓN SAN LUCAS TOLIMÁN, SOCIEDAD ANÓNIMA', {
     x: 50,
     y: height - 5 * fontSize,
     size: fontSize,
     color: rgb(0, 0, 0),
   });
-  page.drawText('Dirección: Calle 123, Ciudad ABC', {
+  page.drawText('San Lucas Tolimán, Sololá, Guatemala', {
     x: 50,
     y: height - 6 * fontSize,
     size: fontSize - 10,
@@ -345,6 +345,8 @@ for (const item of itemsFactura) {
   a.href = url;
   a.download = 'factura.pdf';
   a.click();
+
+
 }
 
 

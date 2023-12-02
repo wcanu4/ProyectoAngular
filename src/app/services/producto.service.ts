@@ -44,7 +44,7 @@ editar(Id: number, contenedorDB: any): Observable<any> {
     cantidadVendida: cantidadVendida
   };
   // Realiza la solicitud POST al servidor para actualizar la cantidad de lechones
-  return this.http.post(`${this.apiUrl}/product/actualizarCantidadLechones/${productId}`, requestBody);
+  return this.http.post(`${this.apiUrl}/product/actualizarCantidad/${productId}`, requestBody);
 }
 
 insertarVenta(ventaData: any): Observable<any> {
