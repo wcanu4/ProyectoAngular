@@ -220,20 +220,6 @@ async generarFacturaPDF(clienteFactura: any, itemsFactura: any) {
     color: rgb(0, 0, 0),
   });
 
-    // Sección de encabezado
-    page.drawText('Factura de Ventas', {
-      x: 150,
-      y: height - 2 * fontSize,
-      size: fontSize,
-      color: rgb(0, 0, 0),
-    });
-  // Sección de encabezado
-  page.drawText('Factura de Ventas', {
-    x: 150,
-    y: height - 2 * fontSize,
-    size: fontSize,
-    color: rgb(0, 0, 0),
-  });
 
   // Datos de la empresa (quemados)
   page.drawText('Empresa XYZ', {
